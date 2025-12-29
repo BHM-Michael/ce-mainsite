@@ -1,0 +1,26 @@
+<section class="hero-small">
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p>Clear answers. Simple process. Private scheduling.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="faq-list">
+      <details class="faq-item" *ngFor="let faq of faqs; let i = index">
+        <summary>
+          <span class="faq-number">{{ i + 1 }}</span>
+          {{ faq.question }}
+        </summary>
+        <div class="faq-answer">{{ faq.answer }}</div>
+      </details>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ready to get started?</h3>
+      <p>Submit a private inquiry and we will follow up with availability.</p>
+      <a class="btn btn--gold" routerLink="/quote">Request a Private Quote</a>
+    </div>
+  </div>
+</section>

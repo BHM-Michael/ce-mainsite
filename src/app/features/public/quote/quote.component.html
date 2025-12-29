@@ -1,0 +1,114 @@
+<section class="hero-small">
+  <div class="container">
+    <h1>Request a Private Quote</h1>
+    <p>Tell us about your space and we'll send you a personalized estimate.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="quote-layout">
+      <div class="quote-info">
+        <h2>What to Expect</h2>
+        <div class="info-item">
+          <span class="info-number">1</span>
+          <div>
+            <h4>Submit Your Request</h4>
+            <p>Fill out the form with your details and service preferences.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-number">2</span>
+          <div>
+            <h4>Receive Your Quote</h4>
+            <p>We'll review your request and send a private estimate within 24 hours.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-number">3</span>
+          <div>
+            <h4>Book Your Service</h4>
+            <p>Once approved, schedule your first session at your convenience.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          <p><strong>21+ Only</strong></p>
+          <p>Clean Encounters exclusively serves adult clients. All clients must verify age before service.</p>
+        </div>
+      </div>
+
+      <div class="quote-form-container" *ngIf="!submitSuccess">
+        <form (ngSubmit)="onSubmit()" class="quote-form">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" [(ngModel)]="quoteForm.name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" [(ngModel)]="quoteForm.email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" [(ngModel)]="quoteForm.phone" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="zipCode">Service Area *</label>
+              <select id="zipCode" [(ngModel)]="quoteForm.zipCode" name="zipCode" required>
+                <option value="">Select your zip code</option>
+                <option *ngFor="let zip of zipCodes" [value]="zip.code">{{ zip.code }} - {{ zip.area }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="squareFootage">Square Footage</label>
+              <input type="text" id="squareFootage" [(ngModel)]="quoteForm.squareFootage" name="squareFootage" placeholder="e.g., 2000">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Type *</label>
+              <select id="service" [(ngModel)]="quoteForm.service" name="service" required>
+                <option value="">Select a service</option>
+                <option *ngFor="let svc of services" [value]="svc">{{ svc }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="frequency">Frequency</label>
+              <select id="frequency" [(ngModel)]="quoteForm.frequency" name="frequency">
+                <option value="">Select frequency</option>
+                <option *ngFor="let freq of frequencies" [value]="freq">{{ freq }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" [(ngModel)]="quoteForm.notes" name="notes" rows="4" placeholder="Any special requests or details about your space..."></textarea>
+          </div>
+
+          <div class="error-message" *ngIf="submitError">{{ submitError }}</div>
+
+          <button type="submit" class="btn btn--gold" [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting">Request Quote</span>
+            <span *ngIf="isSubmitting">Submitting...</span>
+          </button>
+
+          <p class="form-disclaimer">By submitting, you confirm you are 21 years or older.</p>
+        </form>
+      </div>
+
+      <div class="success-message" *ngIf="submitSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Quote Request Received!</h3>
+        <p>Thank you for your interest in Clean Encounters. We'll review your request and send a private estimate within 24 hours.</p>
+        <a class="btn btn--outline" routerLink="/">Return Home</a>
+      </div>
+    </div>
+  </div>
+</section>

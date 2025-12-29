@@ -1,0 +1,34 @@
+<section class="hero-small">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p>Professional light cleaning tailored to your needs. Choose your level.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-header">
+          <h2>{{ service.name }}</h2>
+          <span class="tag">{{ service.tag }}</span>
+        </div>
+        <div class="service-meta">
+          <span class="price">{{ service.price }}</span>
+          <span class="duration">{{ service.duration }}</span>
+        </div>
+        <p class="service-description">{{ service.description }}</p>
+        <ul class="feature-list">
+          <li *ngFor="let feature of service.features">{{ feature }}</li>
+        </ul>
+        <a class="btn btn--gold" routerLink="/quote">Request Quote</a>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h3>Not sure which service is right for you?</h3>
+      <p>Request a consultation and we'll help you choose the perfect option.</p>
+      <a class="btn btn--outline" routerLink="/book">Book a Consultation</a>
+    </div>
+  </div>
+</section>

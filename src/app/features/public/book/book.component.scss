@@ -1,0 +1,367 @@
+.hero-small {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+  }
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section--dark {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.booking-container {
+  background: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .step-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &.active {
+    .step-number {
+      border-color: #c9a962;
+      color: #c9a962;
+    }
+    .step-label {
+      color: #fff;
+    }
+  }
+
+  &.completed {
+    .step-number {
+      background: #c9a962;
+      border-color: #c9a962;
+      color: #1a1a1a;
+    }
+  }
+}
+
+.step-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 1rem;
+  margin-bottom: 1.5rem;
+
+  &.active {
+    background: #c9a962;
+  }
+}
+
+.step-content {
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+}
+
+.service-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.service-option {
+  background: #1a1a1a;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba(201, 169, 98, 0.5);
+  }
+
+  &.selected {
+    border-color: #c9a962;
+    background: rgba(201, 169, 98, 0.1);
+  }
+
+  .service-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    .price {
+      color: #c9a962;
+      font-weight: 600;
+    }
+  }
+
+  .duration {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+  }
+}
+
+.datetime-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.875rem;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #c9a962;
+    }
+  }
+
+  select option {
+    background: #1a1a1a;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.confirmation-summary {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .value {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    &.total {
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+      .value {
+        color: #c9a962;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.login-notice {
+  background: rgba(201, 169, 98, 0.1);
+  border: 1px solid rgba(201, 169, 98, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  a {
+    color: #c9a962;
+    text-decoration: underline;
+  }
+}
+
+.error-message {
+  background: rgba(200, 50, 50, 0.2);
+  border: 1px solid rgba(200, 50, 50, 0.5);
+  color: #ff6b6b;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.step-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  flex: 1;
+}
+
+.btn--gold {
+  background: #c9a962;
+  color: #1a1a1a;
+
+  &:hover {
+    background: #b8954f;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.success-message {
+  background: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    background: #c9a962;
+    color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-options {
+    grid-template-columns: 1fr;
+  }
+
+  .datetime-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-steps {
+    flex-wrap: wrap;
+  }
+
+  .step-line {
+    display: none;
+  }
+}

@@ -1,0 +1,49 @@
+<section class="auth-section">
+  <div class="container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your Clean Encounters account</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            [(ngModel)]="loginForm.email" 
+            name="email" 
+            placeholder="your@email.com"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            [(ngModel)]="loginForm.password" 
+            name="password" 
+            placeholder="Your password"
+            required>
+        </div>
+
+        <div class="form-options">
+          <a routerLink="/auth/forgot-password" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+        <button type="submit" class="btn btn--gold" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Sign In</span>
+          <span *ngIf="isSubmitting">Signing in...</span>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a routerLink="/auth/register">Create one</a></p>
+      </div>
+    </div>
+  </div>
+</section>

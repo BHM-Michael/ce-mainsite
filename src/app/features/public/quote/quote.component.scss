@@ -1,0 +1,263 @@
+.hero-small {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+  }
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section--dark {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.quote-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.quote-info {
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .info-number {
+      width: 32px;
+      height: 32px;
+      background: #c9a962;
+      color: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    h4 {
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+  }
+
+  .disclaimer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    border-radius: 8px;
+
+    p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      margin: 0;
+
+      &:first-child {
+        color: #c9a962;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.quote-form-container {
+  background: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.quote-form {
+  .form-group {
+    margin-bottom: 1.25rem;
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.875rem;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: #fff;
+      font-size: 1rem;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #c9a962;
+      }
+    }
+
+    select {
+      cursor: pointer;
+
+      option {
+        background: #1a1a1a;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.error-message {
+  background: rgba(200, 50, 50, 0.2);
+  border: 1px solid rgba(200, 50, 50, 0.5);
+  color: #ff6b6b;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+.btn--gold {
+  background: #c9a962;
+  color: #1a1a1a;
+
+  &:hover {
+    background: #b8954f;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.form-disclaimer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+.success-message {
+  background: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    background: #c9a962;
+    color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn--outline {
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .quote-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}

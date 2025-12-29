@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: false,\n  apiUrl: 'https://localhost:7183/api',\n  stripePublicKey: 'pk_test_your_key'\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

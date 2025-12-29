@@ -1,0 +1,132 @@
+<section class="hero-small">
+  <div class="container">
+    <h1>Book a Consultation</h1>
+    <p>Schedule your first session in just a few steps.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="booking-container" *ngIf="!submitSuccess">
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div class="step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+          <span class="step-number">1</span>
+          <span class="step-label">Select Service</span>
+        </div>
+        <div class="step-line" [class.active]="currentStep > 1"></div>
+        <div class="step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+          <span class="step-number">2</span>
+          <span class="step-label">Choose Date & Time</span>
+        </div>
+        <div class="step-line" [class.active]="currentStep > 2"></div>
+        <div class="step" [class.active]="currentStep >= 3">
+          <span class="step-number">3</span>
+          <span class="step-label">Confirm Details</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Select Service -->
+      <div class="step-content" *ngIf="currentStep === 1">
+        <h2>Choose Your Service</h2>
+        <div class="service-options">
+          <div class="service-option" 
+               *ngFor="let service of services" 
+               [class.selected]="bookingForm.service === service.id"
+               (click)="bookingForm.service = service.id">
+            <div class="service-option-header">
+              <h3>{{ service.name }}</h3>
+              <span class="price">From ${{ service.price }}</span>
+            </div>
+            <p class="duration">{{ service.duration }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Date & Time -->
+      <div class="step-content" *ngIf="currentStep === 2">
+        <h2>Select Date & Time</h2>
+        <div class="datetime-grid">
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" [(ngModel)]="bookingForm.date" [min]="getMinDate()">
+          </div>
+          <div class="form-group">
+            <label for="time">Preferred Time</label>
+            <select id="time" [(ngModel)]="bookingForm.time">
+              <option value="">Select a time</option>
+              <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="zipCode">Service Area</label>
+            <select id="zipCode" [(ngModel)]="bookingForm.zipCode">
+              <option value="">Select your zip code</option>
+              <option *ngFor="let zip of zipCodes" [value]="zip.code">{{ zip.code }} - {{ zip.area }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" [(ngModel)]="bookingForm.address" placeholder="Street address">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Confirm -->
+      <div class="step-content" *ngIf="currentStep === 3">
+        <h2>Confirm Your Booking</h2>
+        <div class="confirmation-summary">
+          <div class="summary-item">
+            <span class="label">Service</span>
+            <span class="value">{{ getSelectedService()?.name }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Date</span>
+            <span class="value">{{ bookingForm.date }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Time</span>
+            <span class="value">{{ bookingForm.time }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Location</span>
+            <span class="value">{{ bookingForm.address }}, {{ bookingForm.zipCode }}</span>
+          </div>
+          <div class="summary-item total">
+            <span class="label">Estimated Price</span>
+            <span class="value">From ${{ getSelectedService()?.price }}</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" [(ngModel)]="bookingForm.notes" rows="3" placeholder="Any special requests or access instructions..."></textarea>
+        </div>
+
+        <div class="login-notice" *ngIf="!isLoggedIn">
+          <p>You'll need to <a routerLink="/auth/login">sign in</a> or <a routerLink="/auth/register">create an account</a> to complete your booking.</p>
+        </div>
+
+        <div class="error-message" *ngIf="submitError">{{ submitError }}</div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="step-navigation">
+        <button class="btn btn--outline" *ngIf="currentStep > 1" (click)="prevStep()">Back</button>
+        <button class="btn btn--gold" *ngIf="currentStep < 3" (click)="nextStep()" [disabled]="!canProceed()">Continue</button>
+        <button class="btn btn--gold" *ngIf="currentStep === 3" (click)="onSubmit()" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">{{ isLoggedIn ? 'Confirm Booking' : 'Sign In to Book' }}</span>
+          <span *ngIf="isSubmitting">Processing...</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Success State -->
+    <div class="success-message" *ngIf="submitSuccess">
+      <div class="success-icon">✓</div>
+      <h3>Booking Confirmed!</h3>
+      <p>Your consultation has been scheduled. We'll send a confirmation email with all the details.</p>
+      <a class="btn btn--outline" routerLink="/">Return Home</a>
+    </div>
+  </div>
+</section>
